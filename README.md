@@ -95,13 +95,24 @@ Likewise, when we place the circle on the view (its parent display object) at 0,
 
 Let's move it fully onto the stage by changing the x and y value of the circle, in fact, let's center it in the view:
 
-####TODO 2 : Centering Display Objects
+####TODO 3 : Centering Display Objects
 
 ````javascript
     // TODO 3 : Position our circle in the center of the canvas //
     circle.x = (canvas.width - circle.width) / 2;
     circle.y = (canvas.height - circle.height) / 2;
 ````
+
+Here, we're setting the x and y properties of our circle to be at half the canvas width and height, and because the x/y registration point of the circle is centered in itself, we're good to go.
+
+If our display object was a rectangle or square, to center it on the canvas, we'd have to do:
+
+````javascript
+rectangle.x = (canvas.width - rectangle.width) / 2;
+rectangle.y = (canvas.height - rectangle.height) / 2;
+````
+
+Notice above, we offset for the half the width and height of the rectangle too.  Why
 
 Awesome, save, switch tabs, and refresh:
 
