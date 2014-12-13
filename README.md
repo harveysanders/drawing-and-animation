@@ -99,8 +99,8 @@ Let's move it fully onto the stage by changing the x and y value of the circle, 
 
 ````javascript
     // TODO 3 : Position our circle in the center of the canvas //
-    circle.x = (canvas.width - circle.width) / 2;
-    circle.y = (canvas.height - circle.height) / 2;
+    circle.x = canvas.width / 2;
+    circle.y = canvas.height / 2;
 ````
 
 Here, we're setting the x and y properties of our circle to be at half the canvas width and height, and because the x/y registration point of the circle is centered in itself, we're good to go.
@@ -112,18 +112,21 @@ rectangle.x = (canvas.width - rectangle.width) / 2;
 rectangle.y = (canvas.height - rectangle.height) / 2;
 ````
 
-Notice above, we offset for the half the width and height of the rectangle too.  Why
+Notice above, we offset for the half the width and height of the rectangle too.  Why?
 
 Awesome, save, switch tabs, and refresh:
+
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/centered-circle.png">
+
+Fantastic, we're cooking with gas, our circle is dead center.  Now let's add a few more shapes:
+
+####TODO 4 : A Few More Rectangles
 
 ````javascript
     // TODO 4 : 
     var rectangleOne = draw.rect(20, 100, "#00F", "#000");
     view.addChild(rectangleOne);
-````
 
-````javascript
-    // TODO 5 : 
     var rectangleTwo = draw.rect(20, 100, "#00F", "#000");
     rectangleTwo.x = canvas.width - rectangleTwo.width;
     rectangleTwo.y = canvas.height - rectangleTwo.height;
@@ -131,5 +134,25 @@ Awesome, save, switch tabs, and refresh:
 }
 ````
 
+You know what do to, save, switch, refresh:
 
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/game-scene.png">
 
+Who-oh, this is starting to look vaguely 70's!  Could it be?  That's right!  Our quick lesson on drawing shapes is about to turn into a game tutorial!
+
+Alrighty, let's set up a few more properties before we exit the `p.initialize()` method:
+
+````javascript
+// TODO 5 : Add some velocity properties to our display objects // 
+circle.velocityX = 5;
+circle.velocityY = -5;
+rectangleTwo.velocityY = 6;
+````
+
+These velocity properties represent the rate at which our circle and rectangleTwo will move.
+
+Next, let's add a reference to our shapes on our view object such that we can access them from other methods within this module, namely, our `p.update()` method:
+
+````javascript
+
+````

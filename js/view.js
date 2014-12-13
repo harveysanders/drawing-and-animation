@@ -1,6 +1,6 @@
 (function (window) {
 
-    window.index = window.index || {}
+    window.index = window.index || {};
 
     var draw = window.opspark.draw;
     var view;
@@ -26,28 +26,25 @@
         circle.x = canvas.width / 2;
         circle.y = canvas.height / 2;
 
-        // // TODO 4 : 
-        // var rectangleOne = draw.rect(20, 100, "#00F", "#000");
-        // view.addChild(rectangleOne);
+        // TODO 4 : 
+        var rectangleOne = draw.rect(20, 100, "#00F", "#000");
+        view.addChild(rectangleOne);
         
-        // // TODO 5 : 
-        // var rectangleTwo = draw.rect(20, 100, "#00F", "#000");
-        // rectangleTwo.x = canvas.width - rectangleTwo.width;
-        // rectangleTwo.y = canvas.height - rectangleTwo.height;
-        // view.addChild(rectangleTwo);
+        var rectangleTwo = draw.rect(20, 100, "#00F", "#000");
+        rectangleTwo.x = canvas.width - rectangleTwo.width;
+        rectangleTwo.y = canvas.height - rectangleTwo.height;
+        view.addChild(rectangleTwo);
 
-        // // TODO 6 : 
-        // circle.velocityX = 5;
-        // circle.velocityY = -5;
+        // TODO 5 : Add some velocity properties to our display objects // 
+        circle.velocityX = 5;
+        circle.velocityY = -5;
+        rectangleTwo.velocityY = 6;
 
-        // // TODO 7 : Give the Computer a default velocity along its y axis //
-        // rectangleTwo.velocityY = 6
-
-        // // TODO 8 : Add a reference to our shapes on the view object so we can access them in the upate method //
-        // view.circle = circle;
-        // view.rectangleOne = rectangleOne;
-        // view.rectangleTwo= rectangleTwo;
-    }
+        // TODO 6 : Add a reference to our shapes on the view object so we can access them in the upate method //
+        view.circle = circle;
+        view.rectangleOne = rectangleOne;
+        view.rectangleTwo= rectangleTwo;
+    };
 
     p.update = function () {
         // Create some local variables that we will use often //
@@ -98,7 +95,7 @@
         // {
         //     circle.velocityX *= -1;
         // }
-    }
+    };
 
     /*
      * Expose our View Class on our index object, so the View can be instantiated in our app.
