@@ -227,3 +227,54 @@ if (rectangleOne.y + rectangleOne.height > canvas.height) {
 
 We also did a check to make sure the player stays within the bounds of our game scene, that is, our canvas.  Notice we subtracted half the height of rectangleOne from its y position, relative to the mouse - this is so the mouse will remain centered with the rectangle for a better user experience.
 
+Go ahead, save, switch, refresh, you'll notice now that your mouse controls the left rectangle, our player:
+
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/player-movement.png">
+
+####TODO 11 : AI Movement
+
+Yah!  Now for the AI's movement:
+
+````javascript
+// TODO 11 : Write AI's movement //
+if((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
+    rectangleTwo.y = rectangleTwo.y + rectangleTwo.velocityY;
+}
+else if((rectangleTwo.y + rectangleTwo.height / 2) > (circle.y+14)) {
+    rectangleTwo.y = rectangleTwo.y - rectangleTwo.velocityY;
+}
+````
+
+You know what to do: Our AI now follows the circle, except, without any collision detection, our game is over pretty fast, so let's get that in place next:
+
+####TODO 12 : Player Collision Check
+
+````javascript
+// TODO 12: Implement the player's collision check //
+if(circle.x - circle.radius <= rectangleOne.width 
+    && circle.x - circle.radius > 0 
+    && circle.y >= rectangleOne.y 
+    && circle.y < rectangleOne.y + rectangleOne.height)    
+{       
+    circle.velocityX *= -1;
+}
+````
+
+And while where here:
+
+####TODO 13 : AI Collision Check
+
+````javascript
+// TODO 13 : Create the AI collision check //
+if(circle.x + circle.radius > rectangleTwo.x 
+    && circle.x + circle.radius < rectangleTwo.x + rectangleTwo.width 
+    && circle.y >= rectangleTwo.y 
+    && circle.y < rectangleTwo.y + rectangleOne.height)
+{
+    circle.velocityX *= -1;
+}
+````
+
+All Aces!  Save, switch tabs, and refresh:  We have ourselves a game!
+
+Now: What can we improve about our classic Pong game?
