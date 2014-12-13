@@ -41,7 +41,6 @@ p.initialize = function () {
 
 Great, run the app by **selecting the index.html tab, then clicking the "Play"**.
 
-
 <img src="https://raw.githubusercontent.com/OperationSpark/using-c9/master/img/running-index.html.png">
 
 In your Console View at the bottom of the IDE, you'll see:
@@ -58,21 +57,29 @@ Once copied, open up a new tab in Chrome, and paste that URL into the address ba
 
 Finally, after pasting the URL in the address bar, press `enter`:
 
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/background.png">
 
+Alright, pat yourself on the back, you successfully created a rectangle and placed it on our display list!
 
-button.  Copy given URL
+````javascript
     // TODO 2 : Create a circle and add it to our view //
     var circle = draw.circle(20, '#CCC');
     view.addChild(circle);
+````
 
+````javascript
     // TODO 3 : Position our circle in the center of the canvas //
     circle.x = (canvas.width - circle.width) / 2;
     circle.y = (canvas.height - circle.height) / 2;
+````
 
+````javascript
     // TODO 4 : 
     var rectangleOne = draw.rect(20, 100, "#00F", "#000");
     view.addChild(rectangleOne);
-    
+````
+
+````javascript
     // TODO 5 : 
     var rectangleTwo = draw.rect(20, 100, "#00F", "#000");
     rectangleTwo.x = canvas.width - rectangleTwo.width;
