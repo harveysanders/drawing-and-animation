@@ -1,0 +1,107 @@
+(function (window) {
+
+    window.index = window.index || {}
+
+    var draw = window.opspark.draw;
+    var view;
+
+    function View() {
+        view = this;
+        view.Container_initialize();
+        view.initialize();
+    }
+
+    var p = View.prototype = new createjs.Container();
+    p.Container_initialize = p.initialize;
+
+    p.initialize = function () {
+        // TODO 1 : Add a background //
+        view.addChild(draw.rect(canvas.width, canvas.height, "#4c4c4c", "#000"));
+
+        // TODO 2 : Create a circle and add it to our view //
+        var circle = draw.circle(20, '#CCC');
+        view.addChild(circle);
+
+        // TODO 3 : Position our circle in the center of the canvas //
+        circle.x = (canvas.width - circle.width) / 2;
+        circle.y = (canvas.height - circle.height) / 2;
+
+        // TODO 4 : 
+        var rectangleOne = draw.rect(20, 100, "#00F", "#000");
+        view.addChild(rectangleOne);
+        
+        // TODO 5 : 
+        var rectangleTwo = draw.rect(20, 100, "#00F", "#000");
+        rectangleTwo.x = canvas.width - rectangleTwo.width;
+        rectangleTwo.y = canvas.height - rectangleTwo.height;
+        view.addChild(rectangleTwo);
+
+        // TODO 6 : 
+        circle.velocityX = 5;
+        circle.velocityY = -5;
+
+        // TODO 7 : Give the Computer a default velocity along its y axis //
+        rectangleTwo.velocityY = 6
+
+        // TODO 8 : Add a reference to our shapes on the view object so we can access them in the upate method //
+        view.circle = circle;
+        view.rectangleOne = rectangleOne;
+        view.rectangleTwo= rectangleTwo;
+    }
+
+    p.update = function () {
+        // Create some local variables that we will use often //
+        var circle          = view.circle;
+        var rectangleOne    = view.rectangleOne;
+        var rectangleTwo    = view.rectangleTwo;
+
+        // Update the position of the circle based on its x-axis and y-axis velocity //
+        circle.x            += circle.velocityX;
+        circle.y            += circle.velocityY;
+
+        // Circle's top and bottom boundary check //
+        if((circle.y - circle.radius) < 0) { circle.velocityY = -circle.velocityY;  };
+        if((circle.y + circle.radius) > canvas.height) { circle.velocityY = -circle.velocityY; };
+
+        // Player's movement //
+        rectangleOne.y = stage.mouseY - rectangleOne.height / 2;
+        
+        // Player's boundary check //
+        if (rectangleOne.y + rectangleOne.height > canvas.height) {
+            rectangleOne.y = canvas.height - rectangleOne.height;
+        } else if (rectangleOne.y < 0) {
+            rectangleOne.y = 0;
+        }
+
+        // Computer's movement //
+        if((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
+            rectangleTwo.y = rectangleTwo.y + rectangleTwo.velocityY;
+        }
+        else if((rectangleTwo.y + rectangleTwo.height / 2) > (circle.y+14)) {
+            rectangleTwo.y = rectangleTwo.y - rectangleTwo.velocityY;
+        }
+
+        // Player's collision check //
+        if(circle.x - circle.radius <= rectangleOne.width 
+            && circle.x - circle.radius > 0 
+            && circle.y >= rectangleOne.y 
+            && circle.y < rectangleOne.y + rectangleOne.height)    
+        {       
+            circle.velocityX *= -1;
+        }
+
+        // Computer's collision check //
+        if(circle.x + circle.radius > rectangleTwo.x 
+            && circle.x + circle.radius < rectangleTwo.x + rectangleTwo.width 
+            && circle.y >= rectangleTwo.y 
+            && circle.y < rectangleTwo.y + rectangleOne.height)
+        {
+            circle.velocityX *= -1;
+        }
+    }
+
+    /*
+     * Expose our View Class on our index object, so the View can be instantiated in our app.
+     */
+    window.index.View = View;
+}(window));
