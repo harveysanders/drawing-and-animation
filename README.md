@@ -177,6 +177,8 @@ var rectangleOne    = view.rectangleOne;
 var rectangleTwo    = view.rectangleTwo;
 ````
 
+####TODO 8 : Making the Circle Move
+
 Let's update the position of our circle each frame based on its velocityX and velocityY values:
 
 ````javascript
@@ -193,6 +195,7 @@ Whoa, the circle made a b-line off the stage!  And didn't come back!
 
 Alrighty, let's box our circle in, hahaha, ahh:
 
+####TODO 9 : Coding Constraints
 
 ````javascript
 // TODO 9 : Code the circle's top and bottom boundary check //
@@ -204,7 +207,9 @@ if((circle.y + circle.radius) > canvas.height) {
 }
 ````
 
-Sweet, save, switch, refresh!  Nice, our circle bounces off the ceiling, respecting our boundary constraints!
+Sweet, save, switch, refresh!  Nice, our circle bounces off the ceiling, respecting our boundary constraints!  But now we gotta get our player's into the game:
+
+####TODO 10 : Player Movement
 
 Ok, next, let's write some logic to power or player's movement:
 
@@ -219,3 +224,6 @@ if (rectangleOne.y + rectangleOne.height > canvas.height) {
     rectangleOne.y = 0;
 }
 ````
+
+We also did a check to make sure the player stays within the bounds of our game scene, that is, our canvas.  Notice we subtracted half the height of rectangleOne from its y position, relative to the mouse - this is so the mouse will remain centered with the rectangle for a better user experience.
+
