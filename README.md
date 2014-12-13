@@ -235,6 +235,7 @@ Go ahead, save, switch, refresh, you'll notice now that your mouse controls the 
 
 Yah!  Now for the AI's movement:
 
+````javascript
 // TODO 11 : Write AI's movement //
 if((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
     rectangleTwo.y = rectangleTwo.y + rectangleTwo.velocityY;
@@ -242,6 +243,7 @@ if((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
 else if((rectangleTwo.y + rectangleTwo.height / 2) > (circle.y+14)) {
     rectangleTwo.y = rectangleTwo.y - rectangleTwo.velocityY;
 }
+````
 
 You know what to do: Our AI now follows the circle, except, without any collision detection, our game is over pretty fast, so let's get that in place next:
 
