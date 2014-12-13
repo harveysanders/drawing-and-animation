@@ -277,4 +277,8 @@ if(circle.x + circle.radius > rectangleTwo.x
 
 All Aces!  Save, switch tabs, and refresh:  We have ourselves a game!
 
-Now: What can we improve about our classic Pong game?
+**Now:** What can we improve about our classic Pong game?
+
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/game-on.png">
+
+
