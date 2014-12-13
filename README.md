@@ -1,6 +1,26 @@
 Drawing & Animation
 ===
 
+# Installation
+
+### On Cloud9
+
+Create a new Cloud9 workspace:
+
+1. From your Cloud9 Dashboard, find in the upper left corner and click the green button, "Create New Workspace".
+Select "Clone From URL".
+2. In the "Source URL" form input, copy and paste in the following URL:
+
+        https://github.com/OperationSpark/drawing-and-animation.git
+
+3. In the environment selection box, select "Node".
+4. Finally, click the green button "Create".
+5. Once the workspace is completed (while spooling up, you'll see a spinning gear on the newly crated workspace in the sidebar), click the green button, "Start Editing".
+
+Nice, you're in business...
+
+---
+
 ###The Display List
 
 The CreateJS framework uses a nestable display-list, similar to the Flash ecosystem.  The display list is like a tree, allowing us to add display objects onto a stage (think of the stage like the stage of a theater), and once added to the stage, those display objects become visible.  Removed from the stage, the display objects are no longer rendered, and are not visible to the user.
