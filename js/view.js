@@ -74,31 +74,31 @@
             rectangleOne.y = 0;
         }
 
-        // // Computer's movement //
-        // if((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
-        //     rectangleTwo.y = rectangleTwo.y + rectangleTwo.velocityY;
-        // }
-        // else if((rectangleTwo.y + rectangleTwo.height / 2) > (circle.y+14)) {
-        //     rectangleTwo.y = rectangleTwo.y - rectangleTwo.velocityY;
-        // }
+        // TODO 11 : Write AI's movement //
+        if((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
+            rectangleTwo.y = rectangleTwo.y + rectangleTwo.velocityY;
+        }
+        else if((rectangleTwo.y + rectangleTwo.height / 2) > (circle.y+14)) {
+            rectangleTwo.y = rectangleTwo.y - rectangleTwo.velocityY;
+        }
 
-        // // Player's collision check //
-        // if(circle.x - circle.radius <= rectangleOne.width 
-        //     && circle.x - circle.radius > 0 
-        //     && circle.y >= rectangleOne.y 
-        //     && circle.y < rectangleOne.y + rectangleOne.height)    
-        // {       
-        //     circle.velocityX *= -1;
-        // }
+        // TODO 12: Implement the player's collision check //
+        if(circle.x - circle.radius <= rectangleOne.width 
+            && circle.x - circle.radius > 0 
+            && circle.y >= rectangleOne.y 
+            && circle.y < rectangleOne.y + rectangleOne.height)    
+        {       
+            circle.velocityX *= -1;
+        }
 
-        // // Computer's collision check //
-        // if(circle.x + circle.radius > rectangleTwo.x 
-        //     && circle.x + circle.radius < rectangleTwo.x + rectangleTwo.width 
-        //     && circle.y >= rectangleTwo.y 
-        //     && circle.y < rectangleTwo.y + rectangleOne.height)
-        // {
-        //     circle.velocityX *= -1;
-        // }
+        // TODO 13 :  Create the AI collision check //
+        if(circle.x + circle.radius > rectangleTwo.x 
+            && circle.x + circle.radius < rectangleTwo.x + rectangleTwo.width 
+            && circle.y >= rectangleTwo.y 
+            && circle.y < rectangleTwo.y + rectangleOne.height)
+        {
+            circle.velocityX *= -1;
+        }
     };
 
     /*
