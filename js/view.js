@@ -19,8 +19,8 @@
         view.addChild(draw.rect(canvas.width, canvas.height, "#4c4c4c", "#000"));
 
         // // TODO 2 : Create a circle and add it to our view //
-        // var circle = draw.circle(20, '#CCC');
-        // view.addChild(circle);
+        var circle = draw.circle(20, '#CCC');
+        view.addChild(circle);
 
         // // TODO 3 : Position our circle in the center of the canvas //
         // circle.x = (canvas.width - circle.width) / 2;

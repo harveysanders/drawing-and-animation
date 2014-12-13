@@ -39,6 +39,8 @@ p.initialize = function () {
     view.addChild(draw.rect(canvas.width, canvas.height, "#4c4c4c", "#000"));
 ````
 
+The simplified `draw.rect()` API takes values for `width`, `height` `color` and `strokeColor`, the color of the border.  We pass the result of the `draw.rect()` to the `view.addChild()` method, which adds the Shape to the display list.
+
 Great, **save the file** (Mac: Command-S, Windows: Ctrl-S), then run the app by:
 
 A) **Selecting the index.html tab**, then **clicking the "Play" button**:
@@ -69,7 +71,7 @@ Alright, pat yourself on the back, you successfully created a rectangle and plac
 
 Awesome, **keep this tab open** - we'll switch back and forth, code in IDE tab, refresh in the app tab to see our changes.
 
-TODO 2 : 
+####TODO 2 : Create a Circle
 
 ````javascript
     // TODO 2 : Create a circle and add it to our view //
@@ -77,11 +79,31 @@ TODO 2 :
     view.addChild(circle);
 ````
 
+Here we use the simplified drawCircle API of the draw utility, which takes the radius of the circle and its color.
+
+Great stuff, save and switch back to our other tab where the app is running and refresh your browser (Mac: Command-R, Windows: Ctrl-R).  
+
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/quarter-cirle.png">
+
+Neat, but wait, our cirle is only one quarter visable, why?
+
+Well, the radius of a circle is the length of a line segment from its center to its perimeter, and when we created our cirlce, we gave it a radius of `20`, but by default the _registration point_, that is, the location of 0, 0 within its own coordinate space, is centered in the cirle.
+
+Remember, each display object _also_ has its internal coordinate system - so if we placed some other display object inside our circle at 0, 0, that display object would be positioned at the center of the cirle.
+
+Likewise, when we place the circle on the view (its parent display object) at 0, 0, that equates to the top left corner of the view, and means the center of the cirle will be placed at 0, 0 in the view's coordinate system.  Thus, our circle is only a quarter visible.
+
+Let's move it fully onto the stage by changing the x and y value of the circle, in fact, let's center it in the view:
+
+####TODO 2 : Centering Display Objects
+
 ````javascript
     // TODO 3 : Position our circle in the center of the canvas //
     circle.x = (canvas.width - circle.width) / 2;
     circle.y = (canvas.height - circle.height) / 2;
 ````
+
+Awesome, save, switch tabs, and refresh:
 
 ````javascript
     // TODO 4 : 
@@ -98,9 +120,5 @@ TODO 2 :
 }
 ````
 
-Great stuff, save and open or refresh your index.html page.  Neat, but wait, our cirle is only one quarter visable, why?
 
-Well, the radius of a circle or sphere is the length of a line segment from its center to its perimeter, and when we created our cirlce, we gave it a radius of `40`, but by default the _registration point_, that is, the location of 0, 0 within its own coordinate space, is centered in the cirle.  Remember, each display object _also_ has its internal coordinate system - so if we placed some other display object inside our circle at 0, 0, that display object would be place at the center of the cirle.  Likewise, when we ask the circle to be place on the stage (its parent display object) at 0,0, which, for the stage, we know is the top left corner, that means the center of the cirle will be placed at 0, 0 in the stage's coordinate system.  Thus, our circle is only a quarter visible.
-
-Let's move it fully onto the stage by changing the x and y value of the circle.
 
