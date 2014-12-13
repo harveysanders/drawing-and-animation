@@ -40,21 +40,21 @@
         circle.velocityY = -5;
         rectangleTwo.velocityY = 6;
 
-        // TODO 6 : Add a reference to our shapes on the view object so we can access them in the upate method //
+        // TODO 6 : Add a reference to our shapes on the view object //
         view.circle = circle;
         view.rectangleOne = rectangleOne;
         view.rectangleTwo= rectangleTwo;
     };
 
     p.update = function () {
-        // Create some local variables that we will use often //
-        // var circle          = view.circle;
-        // var rectangleOne    = view.rectangleOne;
-        // var rectangleTwo    = view.rectangleTwo;
+        // TODO 7 : Create some local variables that we will use often //
+        var circle          = view.circle;
+        var rectangleOne    = view.rectangleOne;
+        var rectangleTwo    = view.rectangleTwo;
 
-        // // Update the position of the circle based on its x-axis and y-axis velocity //
-        // circle.x            += circle.velocityX;
-        // circle.y            += circle.velocityY;
+        // TODO 8 Update the position of the circle based on its x-axis and y-axis velocity //
+        circle.x            += circle.velocityX;
+        circle.y            += circle.velocityY;
 
         // // Circle's top and bottom boundary check //
         // if((circle.y - circle.radius) < 0) { circle.velocityY = -circle.velocityY;  };

@@ -140,6 +140,8 @@ You know what do to, save, switch, refresh:
 
 Who-oh, this is starting to look vaguely 70's!  Could it be?  That's right!  Our quick lesson on drawing shapes is about to turn into a classic game tutorial!
 
+####TODO 5 : Adding Velocity
+
 Alrighty, let's set up a few more properties before we exit the `p.initialize()` method:
 
 ````javascript
@@ -151,11 +153,27 @@ rectangleTwo.velocityY = 6;
 
 These velocity properties represent the rate at which our circle and rectangleTwo will move.
 
-Next, let's add a reference to our shapes on our view object such that we can access them from other methods within this module, namely, our `p.update()` method:
+####TODO 6 : Exposing our View Objects
+
+Next, let's add a reference to our shapes on our view object such that we can access them from other methods within this module, namely, our `p.update()` method.  If we didn't do this, the variables we created wouldn't be so readily accessible (we'd be able to retrieve them as children of the `view`, but we couldn't do some by name):
 
 ````javascript
-// TODO 6 : Add a reference to our shapes on the view object so we can access them in the upate method //
+// TODO 6 : Add a reference to our shapes on the view object //
 view.circle = circle;
 view.rectangleOne = rectangleOne;
 view.rectangleTwo= rectangleTwo
 ````
+
+Superb!  Let's move onto our `p.update()` method.  The update method is called 60 times per second by our the CreateJS framework.  In this method, we'll implement our game logic, and you'll see that we're able to animate and even check if our shape objects collide with each other:
+
+####TODO 7 : Creating Local Variables
+
+Sometimes, especially if you will access this variables often, it pays to create a local reference to the variables so we don't have to continually reach into othe objects to access them - this is a form of optimization:
+
+````javascript
+// TODO 7 : Create some local variables that we will use often //
+var circle          = view.circle;
+var rectangleOne    = view.rectangleOne;
+var rectangleTwo    = view.rectangleTwo;
+````
+
