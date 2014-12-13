@@ -29,7 +29,7 @@ Let's create and position some shapes onto the stage:  Open up the file at:
 
     `js/view.js`
 
-####TODO 1 : Create a Circle
+####TODO 1 : Create a Rectangle Background
 
 Find the `p.initialize()` function, and using our `draw` utility, add a rectangle to our view using the `addChild` API:
 
