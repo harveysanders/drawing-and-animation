@@ -39,6 +39,8 @@ p.initialize = function () {
     view.addChild(draw.rect(canvas.width, canvas.height, "#4c4c4c", "#000"));
 ````
 
+The simplified `draw.rect()` API takes values for `width`, `height` `color` and `strokeColor`, the color of the border.  We pass the result of the `draw.rect()` to the `view.addChild()` method, which adds the Shape to the display list.
+
 Great, **save the file** (Mac: Command-S, Windows: Ctrl-S), then run the app by:
 
 A) **Selecting the index.html tab**, then **clicking the "Play" button**:
@@ -69,7 +71,7 @@ Alright, pat yourself on the back, you successfully created a rectangle and plac
 
 Awesome, **keep this tab open** - we'll switch back and forth, code in IDE tab, refresh in the app tab to see our changes.
 
-TODO 2 : 
+####TODO 2 : Create a Circle
 
 ````javascript
     // TODO 2 : Create a circle and add it to our view //
@@ -77,20 +79,54 @@ TODO 2 :
     view.addChild(circle);
 ````
 
+Here we use the simplified drawCircle API of the draw utility, which takes the radius of the circle and its color.
+
+Great stuff, save and switch back to our other tab where the app is running and refresh your browser (Mac: Command-R, Windows: Ctrl-R).  
+
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/quarter-cirle.png">
+
+Neat, but wait, our cirle is only one quarter visable, why?
+
+Well, the radius of a circle is the length of a line segment from its center to its perimeter, and when we created our cirlce, we gave it a radius of `20`, but by default the _registration point_, that is, the location of 0, 0 within its own coordinate space, is centered in the cirle.
+
+Remember, each display object _also_ has its internal coordinate system - so if we placed some other display object inside our circle at 0, 0, that display object would be positioned at the center of the cirle.
+
+Likewise, when we place the circle on the view (its parent display object) at 0, 0, that equates to the top left corner of the view, and means the center of the cirle will be placed at 0, 0 in the view's coordinate system.  Thus, our circle is only a quarter visible.
+
+Let's move it fully onto the stage by changing the x and y value of the circle, in fact, let's center it in the view:
+
+####TODO 3 : Centering Display Objects
+
 ````javascript
     // TODO 3 : Position our circle in the center of the canvas //
-    circle.x = (canvas.width - circle.width) / 2;
-    circle.y = (canvas.height - circle.height) / 2;
+    circle.x = canvas.width / 2;
+    circle.y = canvas.height / 2;
 ````
+
+Here, we're setting the x and y properties of our circle to be at half the canvas width and height, and because the x/y registration point of the circle is centered in itself, we're good to go.
+
+If our display object was a rectangle or square, to center it on the canvas, we'd have to do:
+
+````javascript
+rectangle.x = (canvas.width - rectangle.width) / 2;
+rectangle.y = (canvas.height - rectangle.height) / 2;
+````
+
+Notice above, we offset for the half the width and height of the rectangle too.  Why?
+
+Awesome, save, switch tabs, and refresh:
+
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/centered-circle.png">
+
+Fantastic, we're cooking with gas, our circle is dead center.  Now let's add a few more shapes:
+
+####TODO 4 : A Few More Rectangles
 
 ````javascript
     // TODO 4 : 
     var rectangleOne = draw.rect(20, 100, "#00F", "#000");
     view.addChild(rectangleOne);
-````
 
-````javascript
-    // TODO 5 : 
     var rectangleTwo = draw.rect(20, 100, "#00F", "#000");
     rectangleTwo.x = canvas.width - rectangleTwo.width;
     rectangleTwo.y = canvas.height - rectangleTwo.height;
@@ -98,9 +134,46 @@ TODO 2 :
 }
 ````
 
-Great stuff, save and open or refresh your index.html page.  Neat, but wait, our cirle is only one quarter visable, why?
+You know what do to, save, switch, refresh:
 
-Well, the radius of a circle or sphere is the length of a line segment from its center to its perimeter, and when we created our cirlce, we gave it a radius of `40`, but by default the _registration point_, that is, the location of 0, 0 within its own coordinate space, is centered in the cirle.  Remember, each display object _also_ has its internal coordinate system - so if we placed some other display object inside our circle at 0, 0, that display object would be place at the center of the cirle.  Likewise, when we ask the circle to be place on the stage (its parent display object) at 0,0, which, for the stage, we know is the top left corner, that means the center of the cirle will be placed at 0, 0 in the stage's coordinate system.  Thus, our circle is only a quarter visible.
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/game-scene.png">
 
-Let's move it fully onto the stage by changing the x and y value of the circle.
+Who-oh, this is starting to look vaguely 70's!  Could it be?  That's right!  Our quick lesson on drawing shapes is about to turn into a classic game tutorial!
+
+####TODO 5 : Adding Velocity
+
+Alrighty, let's set up a few more properties before we exit the `p.initialize()` method:
+
+````javascript
+// TODO 5 : Add some velocity properties to our display objects // 
+circle.velocityX = 5;
+circle.velocityY = -5;
+rectangleTwo.velocityY = 6;
+````
+
+These velocity properties represent the rate at which our circle and rectangleTwo will move.
+
+####TODO 6 : Exposing our View Objects
+
+Next, let's add a reference to our shapes on our view object such that we can access them from other methods within this module, namely, our `p.update()` method.  If we didn't do this, the variables we created wouldn't be so readily accessible (we'd be able to retrieve them as children of the `view`, but we couldn't do some by name):
+
+````javascript
+// TODO 6 : Add a reference to our shapes on the view object //
+view.circle = circle;
+view.rectangleOne = rectangleOne;
+view.rectangleTwo= rectangleTwo
+````
+
+Superb!  Let's move onto our `p.update()` method.  The update method is called 60 times per second by our the CreateJS framework.  In this method, we'll implement our game logic, and you'll see that we're able to animate and even check if our shape objects collide with each other:
+
+####TODO 7 : Creating Local Variables
+
+Sometimes, especially if you will access this variables often, it pays to create a local reference to the variables so we don't have to continually reach into othe objects to access them - this is a form of optimization:
+
+````javascript
+// TODO 7 : Create some local variables that we will use often //
+var circle          = view.circle;
+var rectangleOne    = view.rectangleOne;
+var rectangleTwo    = view.rectangleTwo;
+````
 
