@@ -177,3 +177,45 @@ var rectangleOne    = view.rectangleOne;
 var rectangleTwo    = view.rectangleTwo;
 ````
 
+Let's update the position of our circle each frame based on its velocityX and velocityY values:
+
+````javascript
+// TODO 8 : Update the position of the circle based on its x-axis and y-axis velocity //
+circle.x            += circle.velocityX;
+circle.y            += circle.velocityY;
+````
+
+Ok, try it out, save, switch tabs, refresh:
+
+<img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/ball-out.png">
+
+Whoa, the circle made a b-line off the stage!  And didn't come back!
+
+Alrighty, let's box our circle in, hahaha, ahh:
+
+
+````javascript
+// TODO 9 : Code the circle's top and bottom boundary check //
+if((circle.y - circle.radius) < 0) { 
+    circle.velocityY = -circle.velocityY;
+}
+if((circle.y + circle.radius) > canvas.height) { 
+    circle.velocityY = -circle.velocityY; 
+}
+````
+
+Sweet, save, switch, refresh!  Nice, our circle bounces off the ceiling, respecting our boundary constraints!
+
+Ok, next, let's write some logic to power or player's movement:
+
+````javascript
+// TODO 10 : Code the player's movement //
+rectangleOne.y = stage.mouseY - rectangleOne.height / 2;
+
+// Player's boundary check //
+if (rectangleOne.y + rectangleOne.height > canvas.height) {
+    rectangleOne.y = canvas.height - rectangleOne.height;
+} else if (rectangleOne.y < 0) {
+    rectangleOne.y = 0;
+}
+````

@@ -52,23 +52,28 @@
         var rectangleOne    = view.rectangleOne;
         var rectangleTwo    = view.rectangleTwo;
 
-        // TODO 8 Update the position of the circle based on its x-axis and y-axis velocity //
+        // TODO 8 : Update the position of the circle based on its x-axis and y-axis velocity //
         circle.x            += circle.velocityX;
         circle.y            += circle.velocityY;
 
-        // // Circle's top and bottom boundary check //
-        // if((circle.y - circle.radius) < 0) { circle.velocityY = -circle.velocityY;  };
-        // if((circle.y + circle.radius) > canvas.height) { circle.velocityY = -circle.velocityY; };
+        // TODO 9 : Code the circle's top and bottom boundary check //
+        if((circle.y - circle.radius) < 0) { 
+            circle.velocityY = -circle.velocityY;
+        }
+        if((circle.y + circle.radius) > canvas.height) { 
+            circle.velocityY = -circle.velocityY; 
+            
+        }
 
-        // // Player's movement //
-        // rectangleOne.y = stage.mouseY - rectangleOne.height / 2;
+        // TODO 10 : Code the player's movement //
+        rectangleOne.y = stage.mouseY - rectangleOne.height / 2;
         
-        // // Player's boundary check //
-        // if (rectangleOne.y + rectangleOne.height > canvas.height) {
-        //     rectangleOne.y = canvas.height - rectangleOne.height;
-        // } else if (rectangleOne.y < 0) {
-        //     rectangleOne.y = 0;
-        // }
+        // Player's boundary check //
+        if (rectangleOne.y + rectangleOne.height > canvas.height) {
+            rectangleOne.y = canvas.height - rectangleOne.height;
+        } else if (rectangleOne.y < 0) {
+            rectangleOne.y = 0;
+        }
 
         // // Computer's movement //
         // if((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
