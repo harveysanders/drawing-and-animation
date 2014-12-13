@@ -31,7 +31,7 @@ Let's create and position some shapes onto the stage:  Open up the file at:
 
 ####TODO 1 : Create a Circle
 
-Find the `initialize()` function, and create a circle Shape:
+Find the `p.initialize()` function, and using our `draw` utility, add a rectangle to our view using the `addChild` API:
 
 ````javascript
 p.initialize = function () {
@@ -39,19 +39,25 @@ p.initialize = function () {
     view.addChild(draw.rect(canvas.width, canvas.height, "#4c4c4c", "#000"));
 ````
 
-Great, run the app by **selecting the index.html tab, then clicking the "Play"**.
+Great, **save the file** (Mac: Command-S, Windows: Ctrl-S), then run the app by:
+
+A) **Selecting the index.html tab**, then **clicking the "Play" button**:
 
 <img src="https://raw.githubusercontent.com/OperationSpark/using-c9/master/img/running-index.html.png">
 
-In your Console View at the bottom of the IDE, you'll see:
+Upon doing so, wait a second, and in your Console View at the bottom of the IDE, you'll see:
 
 <img src="https://raw.githubusercontent.com/OperationSpark/using-c9/master/img/apache-serving-web-page.png">
 
-Now copy (select, then Ctrl-C) the URL after the log mesage: `Staring Apache httpd, serving`, it should be `https://drawing-and-animation-myuser.c9.io/index.html`.  Make sure you don't copy the trailing _period_, if you do, don't worry, just delete it in the next step, when you paste the URL.  See the red-highlighted box, below:
+B) Now copy (Mac: Command-C, Windows: Ctrl-C) the URL after the log mesage: `Staring Apache httpd, serving`.  The URL should be:
+
+    https://drawing-and-animation-myuser.c9.io/index.html.
+    
+Make sure you don't copy the trailing _period_, if you do, don't worry, just delete it in the next step, when you paste the URL.  See the red-highlighted box, below:
 
 <img src="https://raw.githubusercontent.com/OperationSpark/using-c9/master/img/copy-server-url.png">
 
-Once copied, open up a new tab in Chrome, and paste that URL into the address bar:
+C) Once copied, open up a new tab in Chrome, and paste that URL into the address bar:
 
 <img src="https://raw.githubusercontent.com/OperationSpark/using-c9/master/img/pasting-url.png">
 
@@ -60,6 +66,10 @@ Finally, after pasting the URL in the address bar, press `enter`:
 <img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/background.png">
 
 Alright, pat yourself on the back, you successfully created a rectangle and placed it on our display list!
+
+Awesome, **keep this tab open** - we'll switch back and forth, code in IDE tab, refresh in the app tab to see our changes.
+
+TODO 2 : 
 
 ````javascript
     // TODO 2 : Create a circle and add it to our view //
