@@ -29,7 +29,7 @@ The stage is the top most parent display object in the display hierarchy.  And d
 
 There are several types of display objects, each specialized for a particular purpose, like the Shape Class, which is generally used for drawing simple graphics.  We'll work with many of them in our Motion Poem series.
 
-###Added and Positioning Display Objects on the Stage
+###Adding and Positioning Display Objects on the Stage
 
 CreateJS draws its visual elements, display objects, onto the HTML5 Canvas element, which is wrapped by the Stage object.
 
