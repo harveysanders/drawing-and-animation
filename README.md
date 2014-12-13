@@ -1,4 +1,4 @@
-Drawing & Animating
+Drawing & Animation
 ===
 
 ###The Display List
@@ -13,7 +13,7 @@ There are several types of display objects, each specialized for a particular pu
 
 CreateJS draws its visual elements, display objects, onto the HTML5 Canvas element, which is wrapped by the Stage object.
 
-Display objects are positioned using a cartesean coordinate system on x and y axis, which x axis values incrementing to the right, and the y axis values incrementing downward.  The top left corner of the stage is at 0, 0, meaning the value of x is 0 and the value of y is 0.  So, if you place a display object at the top left corner of the stage, its x and y position values will both equal 0.
+Display objects are positioned using a cartesian coordinate system on x and y axis, which x axis values incrementing to the right, and the y axis values incrementing downward.  The top left corner of the stage is at 0, 0, meaning the value of x is 0 and the value of y is 0.  So, if you place a display object at the top left corner of the stage, its x and y position values will both equal 0.
 
 We're going to work with the Graphics API of the Shape Class, however, in our exercise, we've wrapped the API in a utility module, called `draw` to abstract away some of the boilerplate.
 
@@ -63,7 +63,7 @@ C) Once copied, open up a new tab in Chrome, and paste that URL into the address
 
 <img src="https://raw.githubusercontent.com/OperationSpark/using-c9/master/img/pasting-url.png">
 
-Finally, after pasting the URL in the address bar, press `enter`:
+D) Finally, after pasting the URL in the address bar, press `enter`:
 
 <img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/background.png">
 
@@ -85,11 +85,11 @@ Great stuff, save and switch back to our other tab where the app is running and 
 
 <img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/quarter-cirle.png">
 
-Neat, but wait, our cirle is only one quarter visable, why?
+Neat, but wait, our circle is only one quarter visable, why?
 
-Well, the radius of a circle is the length of a line segment from its center to its perimeter, and when we created our cirlce, we gave it a radius of `20`, but by default the _registration point_, that is, the location of 0, 0 within its own coordinate space, is centered in the cirle.
+Well, the radius of a circle is the length of a line segment from its center to its perimeter, and when we created our circle, we gave it a radius of `20`, but by default the _registration point_, that is, the location of 0, 0 within its own coordinate space, is centered in the circle.
 
-Remember, each display object _also_ has its internal coordinate system - so if we placed some other display object inside our circle at 0, 0, that display object would be positioned at the center of the cirle.
+Remember, each display object _also_ has its internal coordinate system - so if we placed some other display object inside our circle at 0, 0, that display object would be positioned at the center of the circle.
 
 Likewise, when we place the circle on the view (its parent display object) at 0, 0, that equates to the top left corner of the view, and means the center of the cirle will be placed at 0, 0 in the view's coordinate system.  Thus, our circle is only a quarter visible.
 
@@ -168,7 +168,7 @@ Superb!  Let's move onto our `p.update()` method.  The update method is called 6
 
 ####TODO 7 : Creating Local Variables
 
-Sometimes, especially if you will access this variables often, it pays to create a local reference to the variables so we don't have to continually reach into othe objects to access them - this is a form of optimization:
+Sometimes, especially if you will access this variables often, it pays to create a local reference to the variables so we don't have to continually reach into the parent objects to access them - this is a form of optimization:
 
 ````javascript
 // TODO 7 : Create some local variables that we will use often //
@@ -191,7 +191,7 @@ Ok, try it out, save, switch tabs, refresh:
 
 <img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/ball-out.png">
 
-Whoa, the circle made a b-line off the stage!  And didn't come back!
+Whoa, the circle made a beeline off the stage!  And didn't come back!
 
 Alrighty, let's box our circle in, hahaha, ahh:
 
@@ -260,7 +260,7 @@ if(circle.x - circle.radius <= rectangleOne.width
 }
 ````
 
-And while where here:
+And while we're here:
 
 ####TODO 13 : AI Collision Check
 
@@ -280,5 +280,3 @@ All Aces!  Save, switch tabs, and refresh:  We have ourselves a game!
 **Now:** What can we improve about our classic Pong game?
 
 <img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/game-on.png">
-
-
