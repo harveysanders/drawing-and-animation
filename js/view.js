@@ -62,7 +62,6 @@
         }
         if((circle.y + circle.radius) > canvas.height) { 
             circle.velocityY = -circle.velocityY; 
-            
         }
 
         // TODO 10 : Code the player's movement //
