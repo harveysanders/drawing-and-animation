@@ -15,7 +15,7 @@ Select "Clone From URL".
 
 3. In the environment selection box, select "Node".
 4. Finally, click the green button "Create".
-5. Once the workspace is completed (while spooling up, you'll see a spinning gear on the newly crated workspace in the sidebar), click the green button, "Start Editing".
+5. Once the workspace is completed (while spooling up, you'll see a spinning gear on the newly created workspace in the sidebar), click the green button, "Start Editing".
 
 Nice, you're in business...
 
