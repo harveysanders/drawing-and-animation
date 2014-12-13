@@ -138,7 +138,7 @@ You know what do to, save, switch, refresh:
 
 <img src="https://raw.githubusercontent.com/OperationSpark/drawing-and-animation/master/img/game-scene.png">
 
-Who-oh, this is starting to look vaguely 70's!  Could it be?  That's right!  Our quick lesson on drawing shapes is about to turn into a game tutorial!
+Who-oh, this is starting to look vaguely 70's!  Could it be?  That's right!  Our quick lesson on drawing shapes is about to turn into a classic game tutorial!
 
 Alrighty, let's set up a few more properties before we exit the `p.initialize()` method:
 
@@ -154,5 +154,8 @@ These velocity properties represent the rate at which our circle and rectangleTw
 Next, let's add a reference to our shapes on our view object such that we can access them from other methods within this module, namely, our `p.update()` method:
 
 ````javascript
-
+// TODO 6 : Add a reference to our shapes on the view object so we can access them in the upate method //
+view.circle = circle;
+view.rectangleOne = rectangleOne;
+view.rectangleTwo= rectangleTwo
 ````
