@@ -16,7 +16,7 @@
 
     p.initialize = function () {
         // TODO 1 : Add a background //
-        
+        view.addChild(draw.rect(canvas.width, canvas.height, #4c4c4c, "#000"));
 
         // TODO 2 : Create a circle and add it to our view //
         
