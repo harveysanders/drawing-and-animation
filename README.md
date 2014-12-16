@@ -289,7 +289,7 @@ And while we're here:
 if(circle.x + circle.radius > rectangleTwo.x 
     && circle.x + circle.radius < rectangleTwo.x + rectangleTwo.width 
     && circle.y >= rectangleTwo.y 
-    && circle.y < rectangleTwo.y + rectangleOne.height)
+    && circle.y < rectangleTwo.y + rectangleTwo.height)
 {
     circle.velocityX *= -1;
 }
