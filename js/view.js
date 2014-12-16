@@ -60,8 +60,12 @@
         circle.y += circle.velocityY;
 
         // TODO 9 : Code the circle's top and bottom boundary check //
-        
-
+        if ((circle.y - circle.radius) < 0) {
+            circle.velocityY = -circle.velocityY;
+        }
+        if((circle.y - circle.radius) > canvas.height) {
+            circle.velocityY = -circle.velocityY;
+        }
         // TODO 10 : Code the player's movement //
         
         
