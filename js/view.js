@@ -16,16 +16,26 @@
 
     p.initialize = function () {
         // TODO 1 : Add a background //
+        view.addChild(draw.rect(canvas.width, canvas.height, "#4c4c4c", "#000"));
+       
        
 
         // TODO 2 : Create a circle and add it to our view //
-        
+        var circle = draw.circle(20, '#CCC');
+        view.addChild(circle);
 
         // TODO 3 : Position our circle in the center of the canvas //
-        
+        circle.x = canvas.width / 2;
+        circle.y = canvas.height / 2;
 
         // TODO 4 : 
+        var rectangleOne = draw.rect(20, 100, "00F", "#000");
+        view.addChild(rectangleOne);
         
+        var rectangleTwo = draw.rect(20, 100, "#00F", "#000");
+        rectangleTwo.x = canvas.width - rectangleTwo.width;
+        rectangleTwo.y = canvas.height - rectangleTwo.height;
+        view.addChild(rectangleTwo);
 
         // TODO 5 : Add some velocity properties to our display objects // 
         
