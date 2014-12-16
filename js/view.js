@@ -63,23 +63,42 @@
         if ((circle.y - circle.radius) < 0) {
             circle.velocityY = -circle.velocityY;
         }
-        if((circle.y - circle.radius) > canvas.height) {
+        if((circle.y + circle.radius) > canvas.height) {
             circle.velocityY = -circle.velocityY;
         }
         // TODO 10 : Code the player's movement //
-        
+        rectangleOne.y = stage.mouseY - rectangleOne.height / 2;
         
         // Player's boundary check //
-        
+        if (rectangleOne.y + rectangleOne.height > canvas.height) {
+            rectangleOne.y = canvas.height - rectangleOne.height;
+        } else if (rectangleOne.y < 0) {
+            rectangleOne.y = 0;
+        }
 
         // TODO 11 : Write AI's movement //
-        
+        if ((rectangleTwo.y + rectangleTwo.height / 2) < (circle.y - 14)) {
+            rectangleTwo.y = rectangleTwo.y + rectangleTwo.velocityY;
+        } else if ((rectangleTwo.y + rectangleTwo.height / 2) > (circle.y + 14)) {
+            rectangleTwo.y = rectangleTwo.y - rectangleTwo.velocityY;
+        }
 
         // TODO 12: Implement the player's collision check //
-        
+        if(circle.x - circle.radius <= rectangleOne.width
+            && circle.x - circle.radius > 0
+            && circle.y >= rectangleOne.y
+            && circle.y < rectangleOne.y + rectangleOne.height)
+        {
+            circle.velocityX *= -1;
+        }    
 
         // TODO 13 :  Create the AI collision check //
-        
+        if (circle.x + circle.radius > rectangleTwo.x
+            && circle.x + circle.radius < rectangleTwo.x + rectangleTwo.width
+            && circle.y >= rectangleTwo.y
+            && circle.y < rectangleTwo.y + rectangleTwo.height) {
+                circle.velocityX *= -1;
+            }
     };
 
     /*
