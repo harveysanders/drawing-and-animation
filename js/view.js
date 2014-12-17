@@ -18,22 +18,14 @@
         // TODO 1 : Add a background //
         view.addChild(draw.rect(canvas.width, canvas.height, "#4c4c4c", "#000"));
        
-       
-
         // TODO 2 : Create a circle and add it to our view //
         var circle = draw.circle(20, '#CCC');
         view.addChild(circle);
-
-        //test new circle//
-        var circleTwo = draw.circle(35, '#EEE');
-        view.addChild(circleTwo);
 
         // TODO 3 : Position our circle in the center of the canvas //
         circle.x = canvas.width / 2;
         circle.y = canvas.height / 2;
 
-        circleTwo.x = 250;
-        circleTwo.y = 200;
 
         // TODO 4 : Create rectangle paddles //
         var rectangleOne = draw.rect(20, 100, "00F", "#000");
@@ -115,12 +107,14 @@
                 circle.velocityX *= -1;
             }
         // Score counter //
-        if (circle.x + cirlce.radius > canvas.width) {
+        if (circle.x + circle.radius > canvas.width) {
             playerScoreCount += 1;
         }
         if (circle.x - circle.radius < 0) {
             AIScoreCount += 1;
         }
+        console.log("Player Score = " + playerScoreCount + "\n" + "Computer Score = " + AIScoreCount);
+        
     };
 
     /*
