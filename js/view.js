@@ -24,11 +24,18 @@
         var circle = draw.circle(20, '#CCC');
         view.addChild(circle);
 
+        //test new circle//
+        var circleTwo = draw.circle(35, '#EEE');
+        view.addChild(circleTwo);
+
         // TODO 3 : Position our circle in the center of the canvas //
         circle.x = canvas.width / 2;
         circle.y = canvas.height / 2;
 
-        // TODO 4 : 
+        circleTwo.x = 250;
+        circleTwo.y = 200;
+
+        // TODO 4 : Create rectangle paddles //
         var rectangleOne = draw.rect(20, 100, "00F", "#000");
         view.addChild(rectangleOne);
         
@@ -36,6 +43,11 @@
         rectangleTwo.x = canvas.width - rectangleTwo.width;
         rectangleTwo.y = canvas.height - rectangleTwo.height;
         view.addChild(rectangleTwo);
+
+        // Create scoreboard //
+        var text = new createjs.Text("Hello World", "20px Arial", "#ff7700"); text.x = 100; text.textBaseline = "alphabetic";
+        view.addChild(text);
+        var playerScore = new createjs.Text(0);
 
         // TODO 5 : Add some velocity properties to our display objects // 
         circle.velocityX = 5;
@@ -46,6 +58,7 @@
         view.circle = circle;
         view.rectangleOne = rectangleOne;
         view.rectangleTwo = rectangleTwo;
+        view.text = text;
         
     };
 
@@ -54,6 +67,8 @@
         var circle = view.circle;
         var rectangleOne = view.rectangleOne;
         var rectangleTwo = view.rectangleTwo;
+        var playerScoreCount = 0;
+        var AIScoreCount = 0;
 
         // TODO 8 : Update the position of the circle based on its x-axis and y-axis velocity //
         circle.x += circle.velocityX;
@@ -99,6 +114,13 @@
             && circle.y < rectangleTwo.y + rectangleTwo.height) {
                 circle.velocityX *= -1;
             }
+        // Score counter //
+        if (circle.x + cirlce.radius > canvas.width) {
+            playerScoreCount += 1;
+        }
+        if (circle.x - circle.radius < 0) {
+            AIScoreCount += 1;
+        }
     };
 
     /*
